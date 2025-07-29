@@ -286,7 +286,6 @@ body {
 .waitlist-btn {
 	position: absolute;
 	top: 90%;
-	background-color: #fff;
 	transform: translateY(-88%);
 	max-width: 100%;
 	display: flex;
@@ -322,6 +321,7 @@ body {
 .btn-dark {
 	/* border: 2px solid transparent; */
 	/* consistent width */
+	background: none !important;
 	transition: border-color 0.3s ease;
 }
 
