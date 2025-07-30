@@ -9,12 +9,7 @@ export default function TribliHeroSection() {
   
   useScrollAnimation(sectionRef as RefObject<HTMLElement>);
 
-  const handleWaitlistClick = () => {
-    const element = document.getElementById('join-waitlist');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+
 
   return (
     <section className="tribli-hero py-5" ref={sectionRef}>

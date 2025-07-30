@@ -28,7 +28,7 @@ export default function WaitlistSection() {
           <div id="waitlist-content">
             <h2 className="text-dark join-text pb-2">Get Ready</h2>
             <p className="text-muted mb-4 mb-md-5 starts-quietly-text">
-              Not for what's next. But for what's never been.
+              Not for what&apos;s next. But for what&apos;s never been.
             </p>
             
             {/* Waitlist form */}
@@ -62,7 +62,7 @@ export default function WaitlistSection() {
           /* Thank You Message */
           <div id="thank-you-message" className="mt-4 py-3">
             <h3 className="btn-text-color mb-0 content-tool-text">Thank you! 🎉</h3>
-            <p className="text-muted pt-2">You've been added to the waitlist.</p>
+            <p className="text-muted pt-2">You&apos;ve been added to the waitlist.</p>
           </div>
         )}
       </div>
