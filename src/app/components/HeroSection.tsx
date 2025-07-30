@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, RefObject } from 'react';
 import Image from 'next/image';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -8,7 +8,7 @@ export default function HeroSection() {
   const [logoAnimated, setLogoAnimated] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   
-  useScrollAnimation(sectionRef);
+  useScrollAnimation(sectionRef as RefObject<HTMLElement>);
 
   useEffect(() => {
     // Trigger logo animation on mount
