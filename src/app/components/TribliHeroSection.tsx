@@ -24,13 +24,39 @@ export default function TribliHeroSection() {
               height={100}
               style={{ marginBottom: '50px', paddingTop: '30px' }}
             />
-            <h4 className="mobile-text-quit text-dark" style={{ paddingBottom: '30px', fontSize: '20px', textAlign: '-webkit-match-parent', lineHeight: '20px', fontWeight: 600, margin: 'auto 24px' }}>
+            <h4 
+              className="mobile-text-quit text-dark" 
+              style={{ 
+                paddingBottom: '30px',
+                fontSize: '20px',
+                textAlign: 'center' as const,
+                lineHeight: '20px',
+                fontWeight: 600,
+                margin: 'auto 24px',
+              }}
+            >
               A Quiet Revolution for Global Creators
             </h4>
-            <p className="mobile-text-building text-dark" style={{ fontSize: '13px', color: '#6C6C6C', fontWeight: 500, lineHeight: '14px', paddingBottom: '0px' }}>
+            <p 
+              className="mobile-text-building text-dark" 
+              style={{ 
+                fontSize: '13px', 
+                color: '#6C6C6C !important', 
+                fontWeight: 500, 
+                lineHeight: '14px', 
+                paddingBottom: '0px' 
+              }}
+            >
               We&apos;re building something that will empower creators in ways the world hasn&apos;t seen yet.
             </p>
-            <p className="mobile-text-stay-curious text-dark" style={{ fontSize: '12px', fontWeight: 700, lineHeight: '100%' }}>
+            <p 
+              className="mobile-text-stay-curious text-dark" 
+              style={{ 
+                fontSize: '12px', 
+                fontWeight: 700, 
+                lineHeight: '100%' 
+              }}
+            >
               Stay Curious. Stay Close.
             </p>
           </div>
