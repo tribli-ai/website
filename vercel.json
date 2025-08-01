@@ -1,13 +1,8 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "framework": "nextjs",
-  "installCommand": "npm ci",
-  "functions": {
-    "src/app/**": {
-      "maxDuration": 30
-    }
-  },
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "installCommand": null,
+  "framework": null,
   "headers": [
     {
       "source": "/(.*)",
