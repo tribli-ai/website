@@ -3,7 +3,6 @@
 .hero {
 	background: url('/hero-section.jpg') no-repeat center center/cover;
 	height: 100vh;
-	height: 830px;
 	position: relative;
 	text-align: center;
 	display: flex;
@@ -52,7 +51,7 @@
 }
 
 .scroll-indicator p {
-	font-family: "Geist", sans-serif;
+	font-family: var(--font-geist-sans), sans-serif;
 	word-break: break-word;
 	font-weight: 500;
 	font-size: 12px;
@@ -133,7 +132,7 @@
 	margin-bottom: 0;
 	font-weight: 500;
 	font-size: 34px;
-	font-family: "Geist", sans-serif;
+	font-family: var(--font-geist-sans), sans-serif;
 	text-transform: uppercase;
 	color: #9E9E9E;
 	transition: color 0.3s ease, transform 0.3s ease;
@@ -442,7 +441,7 @@ input {
 
 .creators-text {
 	color: #5D5D5D;
-	font-family: "Geist", sans-serif;
+	font-family: var(--font-geist-sans), sans-serif;
 	font-weight: 400;
 	font-size: 24px;
 	line-height: 29px;
@@ -456,7 +455,7 @@ input {
 .launching-soon-text {
 	color: #1F1F1F;
 	white-space: nowrap;
-	font-family: "Geist", sans-serif;
+	font-family: var(--font-geist-sans), sans-serif;
 	word-break: break-word;
 	font-weight: 600;
 	font-size: 32px;
@@ -643,7 +642,7 @@ input {
 }
 
 .working-on-section-style {
-	font-family: "Geist", sans-serif;
+	font-family: var(--font-geist-sans), sans-serif;
 	word-break: break-word;
 	font-weight: 700;
 	font-size: 84px;
@@ -654,7 +653,7 @@ input {
 }
 
 .content-tool-text {
-	font-family: "Geist", sans-serif;
+	font-family: var(--font-geist-sans), sans-serif;
 	word-break: break-word;
 	font-weight: 500 !important;
 	font-size: 84px;
@@ -675,7 +674,7 @@ input {
 .tribli-ai {
 	color: rgb(45, 44, 44);
 	white-space: nowrap;
-	font-family: "Geist", sans-serif;
+	font-family: var(--font-geist-sans), sans-serif;
 	word-break: break-word;
 	font-weight: 600 !important;
 	font-size: 24px;
@@ -684,7 +683,7 @@ input {
 }
 
 .join-text {
-	font-family: "Geist", sans-serif;
+	font-family: var(--font-geist-sans), sans-serif;
 	word-break: break-word;
 	font-weight: 700 !important;
 	font-size: 38px;
@@ -697,7 +696,7 @@ input {
 
 .starts-quietly-text {
 	color: #717171;
-	font-family: "Geist", sans-serif;
+	font-family: var(--font-geist-sans), sans-serif;
 	word-break: break-word;
 	font-weight: 500;
 	font-size: 24px;
@@ -1042,7 +1041,7 @@ input {
 
 	.creators-text {
 		color: #5D5D5D;
-		font-family: "Geist", sans-serif;
+		font-family: var(--font-geist-sans), sans-serif;
 		font-weight: 400;
 		line-height: 21px !important;
 		font-size: 14px !important;
@@ -1109,7 +1108,7 @@ input {
 	}
 
 	.working-on-section-style {
-		font-family: "Geist", sans-serif;
+		font-family: var(--font-geist-sans), sans-serif;
 		word-break: break-word;
 		font-weight: 700;
 		font-size: 1.6rem;
@@ -1119,7 +1118,7 @@ input {
 	}
 
 	.content-tool-text {
-		font-family: "Geist", sans-serif;
+		font-family: var(--font-geist-sans), sans-serif;
 		word-break: break-word;
 		font-weight: 700;
 		font-size: 1.5rem;
@@ -1340,7 +1339,7 @@ input {
 	}
 
 	.join-text {
-		font-family: "Geist", sans-serif;
+		font-family: var(--font-geist-sans), sans-serif;
 		word-break: break-word;
 		font-weight: 700 !important;
 		font-size: 30px;
@@ -1350,7 +1349,7 @@ input {
 	}
 
 	.starts-quietly-text {
-		font-family: "Geist", sans-serif;
+		font-family: var(--font-geist-sans), sans-serif;
 		word-break: break-word;
 		font-weight: 500;
 		font-size: 16px;

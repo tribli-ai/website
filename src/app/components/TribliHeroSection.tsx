@@ -20,9 +20,15 @@ export default function TribliHeroSection() {
             <Image 
               src="/Vector_2.svg" 
               alt="Phone" 
-              width={200} 
-              height={100}
-              style={{ marginBottom: '50px', paddingTop: '30px' }}
+              width={0}
+              height={0}
+              style={{ 
+                width: 'auto', 
+                height: 'auto', 
+                marginBottom: '50px', 
+                paddingTop: '30px' 
+              }}
+              unoptimized
             />
             <h4 
               className="mobile-text-quit text-dark" 
