@@ -2,9 +2,9 @@ name: Deploy to Vercel
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, prod ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, prod ]
 
 jobs:
   deploy:
@@ -14,19 +14,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js (if not static)
+        if: github.ref != 'refs/heads/prod'
         uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
 
-      - name: Install dependencies
+      - name: Install dependencies (if not static)
+        if: github.ref != 'refs/heads/prod'
         run: npm ci
 
-      - name: Run linting
+      - name: Run linting (if not static)
+        if: github.ref != 'refs/heads/prod'
         run: npm run lint
 
-      - name: Build application
+      - name: Build application (if not static)
+        if: github.ref != 'refs/heads/prod'
         run: npm run build
 
       - name: Install Vercel CLI
@@ -39,7 +43,7 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy to Vercel (Production)
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/prod') && github.event_name == 'push'
         run: vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }} --yes --force
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
