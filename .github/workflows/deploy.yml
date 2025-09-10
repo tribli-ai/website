@@ -16,8 +16,8 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
+          git config --global user.email "anoop@tribli.ai"
+          git config --global user.name "Anoop Singh"
 
       - name: Setup Node.js (if not static)
         if: github.ref != 'refs/heads/prod'
