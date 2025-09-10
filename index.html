@@ -473,6 +473,14 @@
             animTimeout2 = setTimeout(() => {
               // Hide the whole form wrapper, not just the form tag
               document.getElementById('waitlist-form-wrapper').style.display = 'none';
+              
+              // Update thank you message with API response
+              if (data && data.message) {
+                thankyou.innerHTML = '<div>Thank you! 🎉<br>' + data.message + '</div>';
+              } else {
+                thankyou.innerHTML = '<div>Thank you! 🎉<br>You\'ve been added to the waitlist.</div>';
+              }
+              
               thankyou.style.display = 'block';
 
               setTimeout(() => {
