@@ -65,7 +65,7 @@
             <h1 class="hero-heading animate__animated animate__zoomIn animate__delay-3s">COMING SOON</h1>
          </div>
          <!-- <h1 class="hero-heading animate__hidden animate__delay-2s" data-animate="animate__zoomIn">Coming Soon. Simple, Bold, Thoughtful.</h1> -->
-         <div class="scroll-indicator animate__hidden" data-animate="animate__zoomIn" style="animation-delay: 2.4s;">
+         <div class="scroll-indicator custom-zoom-in" >
             <a href="#scroll-to-tribli"><img src="images/Mouse Scrolling.png" alt="Scroll Icon" class="img-fluid animate__hidden" data-animate="bounce" /></a>
             <p class="unfold-text">UNFOLD</p>
          </div>
@@ -149,7 +149,7 @@
                <!-- Phone Content -->
                <div class="phone-content animate__hidden" data-animate="animate__slideInUp">
                   <div class="phone-inner-content">
-                     <img src="images/Vector_2.svg" alt="Phone" style="margin-bottom: 50px;padding-top:30px" />
+                     <img src="images/Vector_2.svg" alt="Phone" class="img-fluid" style="margin-bottom: 50px;padding-top:30px" />
                      <h4 class="mobile-text-quit text-dark" style="padding-bottom: 30px;font-size: 20px;text-align: -webkit-match-parent;line-height: 20px;font-weight: 600;margin: auto 24px;">A Quiet Revolution for Global Creators</h4>
                      <p class="mobile-text-building text-dark" style="font-size: 13px;color: #6C6C6C !important;font-weight:500;line-height: 14px; padding-bottom: 0px;">We're building something that will empower creators in ways the world hasn't seen yet.</p>
                      <p class="mobile-text-stay-curious text-dark" style="font-size: 12px;font-weight: 700;line-height: 100%;">Stay Curious. Stay Close.</p>
@@ -172,7 +172,7 @@
                   <div class="container text-center py-3">
                      <p class="lead mb-4 creators-text animate__hidden animate__delay-1s" data-animate="animate__zoomIn">Creators don’t need more noise.<br>They need clarity, connection, and control.<br>That’s exactly what we’re creating behind closed doors.</p>
                      <h5 class="fw-bold mb-2 launching-soon-text pt-2">Launching Soon</h5>
-                     <div class="d-flex justify-content-center flex-wrap mb-3">
+                     <div class="d-flex justify-content-center mb-3">
                         <p class="d-flex align-items-center px-1 py-2">
                            <img src="images/googleplay.svg" alt="Google Play" class="img-fluid google-pay-style">
                         </p>
@@ -224,27 +224,26 @@
                <p class="text-muted mb-4 mb-md-5 starts-quietly-text">
                   Not for what’s next. But for what’s never been.
                </p>
+               <div id="waitlist-form-wrapper">
                <!-- Waitlist form -->
-               <form id="waitlist-form" class="d-flex justify-content-center flex-wrap" onsubmit="return false;">
-                  <input type="email" class="form-control rounded-pill px-4 py-2" placeholder="Your e-mail" required />
-                  <div class="rainbow-wrapper position-relative">
+               <form class="waitlist-form d-flex justify-content-center flex-wrap gap-3" id="waitlist-form" onsubmit="return false;" autocomplete="off" novalidate>
+                  <input id="waitlist-email" type="text" class="form-control rounded-pill px-4 py-2" placeholder="Your e-mail" />
+                  <div class="rainbow-wrapper position-relative d-flex align-items-normal gradient-border-outer" id="gb-outer">
                      <div class="rainbow-glow"></div>
-                     <!-- <button type="submit" class="btn btn-dark rounded-pill px-4 py-2 fw-semibold position-relative z-1 rainbow-button">
-                        <p class="btn-text-color mb-0">Get Early Access</p>
-                        </button> -->
-                     <button type="submit" class="btn btn-dark rounded-pill px-3 py-2 waitlist-btn fw-semibold position-relative z-1">
-                        <div class="position-relative gradient-border" id="box">
-                           <p class="btn-text-color pt-0">Get Early Access
-                           <p>
+                     <button type="submit" id="waitlist-submit" class="button btn btn-dark rounded-pill px-1 py-0 waitlist-btn fw-semibold z-1 position-relative">
+                        <div class="" id="box">
+                           <p class="btn-text-color">Get Early Access</p>
                         </div>
                      </button>
                   </div>
                </form>
-            </div>
-            <!-- Thank You Message (hidden initially) -->
-            <div id="thank-you-message" class="mt-4 py-3" style="display: none;">
-               <h3 class="btn-text-color mb-0 content-tool-text">Thank you! 🎉</h3>
-               <p class="text-muted pt-2">You've been added to the waitlist.</p>
+               </div>
+               <div class="thank-you-message" id="thank-you-message">
+                  <div>Thank you! 🎉<br>You've been added to the waitlist.</div>
+               </div>
+               <div class="error-message" id="error-message">
+                  <div>Invalid Email Address. Please try again.</div>
+               </div>
             </div>
          </div>
       </section>
@@ -263,9 +262,6 @@
             </div>
             <!-- Right Side: Social Icons -->
             <div class="d-flex gap-3 justify-content-center">
-               <!-- <a href="#" target="_blank"><img src="images/LinkedIn.svg" alt="LinkedIn" class="img-fluid social-icon linkedin"></a>
-                  <a href="#" target="_blank"><img src="images/Instagram.svg" alt="Instagram" class="img-fluid social-icon instagram"></a>
-                  <a href="#" target="_blank"><img src="images/X.svg" alt="X" class="img-fluid social-icon"></a> -->
                <a href="#" target="_blank" class="icon-wrapper">
                <img src="images/LinkedIn.svg" class="img-fluid social-icon default" alt="LinkedIn">
                <img src="images/linkedin-svg-icon-hover.svg" class="img-fluid social-icon hover-img" alt="LinkedIn">
@@ -332,12 +328,12 @@
                    el.classList.remove("animate__hidden");
                    el.classList.remove("animate__animated", animation);
            
-                   // Force reflow to restart animation
+                   
                    void el.offsetWidth;
            
                    el.classList.add("animate__animated", animation);
                  } else {
-                   // Remove animation classes so it can trigger again
+                  
                    el.classList.remove("animate__animated", animation);
                    el.classList.add("animate__hidden");
                  }
@@ -348,6 +344,54 @@
                observer.observe(el);
              });
            });
+         
+         
+         //          document.addEventListener("DOMContentLoaded", function () {
+         //   const isMobile = window.innerWidth <= 768;
+         
+         //   const animatedElements = document.querySelectorAll("[data-animate]");
+         
+         //   // Store scroll direction
+         //   let lastScrollY = window.scrollY;
+         
+         //   const observer = new IntersectionObserver((entries) => {
+         //     entries.forEach(entry => {
+         //       const el = entry.target;
+         //       const animation = el.dataset.animate;
+         
+         //       const currentScrollY = window.scrollY;
+         //       const scrollingDown = currentScrollY > lastScrollY;
+         
+         //       if (entry.isIntersecting) {
+         
+         //         if (!isMobile) {
+         //           el.classList.remove("animate__hidden");
+         //           el.classList.remove("animate__animated", animation);
+         //           void el.offsetWidth;
+         //           el.classList.add("animate__animated", animation);
+         //         } 
+         
+         //         else if (!el.classList.contains("animated-once") && scrollingDown) {
+         //           el.classList.remove("animate__hidden");
+         //           void el.offsetWidth;
+         //           el.classList.add("animate__animated", animation, "animated-once");
+         //         }
+         //       } else {
+         
+         //         if (!isMobile) {
+         //           el.classList.remove("animate__animated", animation);
+         //           el.classList.add("animate__hidden");
+         //         }
+         //       }
+         
+         //       lastScrollY = currentScrollY;
+         //     });
+         //   }, { threshold: 0.3 });
+         
+         //   animatedElements.forEach(el => {
+         //     observer.observe(el);
+         //   });
+         // });
          
          
          
@@ -376,35 +420,81 @@
          if (logo) {
          logo.classList.add("animate");
          }
-         });       
+         });  
          
-         //waitlist thank you message show/hide js code
-         document.addEventListener("DOMContentLoaded", function () {
-         const waitlistContent = document.getElementById("waitlist-content");
-         const thankYou = document.getElementById("thank-you-message");
-         const form = document.getElementById("waitlist-form");
-         const emailInput = form.querySelector('input[type="email"]');
          
-         form.addEventListener("submit", function (e) {
+         
+         
+ //form validation and success message and error message display        
+         const form = document.getElementById('waitlist-form');
+         const emailInput = document.getElementById('waitlist-email');
+         const button = document.getElementById('waitlist-submit');
+         const thankyou = document.getElementById('thank-you-message');
+         const errorMessage = document.getElementById('error-message');
+         let animTimeout1, animTimeout2;
+         
+         form.addEventListener('submit', function(e) {
          e.preventDefault();
+         button.classList.remove('animate', 'success', 'error');
+         button.disabled = true;
+         button.style.color = 'transparent';
+         if (errorMessage) errorMessage.style.display = 'none'; // hide error at submit
+         void button.offsetWidth;
+         button.classList.add('animate');
          
          const email = emailInput.value.trim();
-         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+         const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
          
-         if (!emailRegex.test(email)) {
-         alert("Please enter a valid email address.");
+         if (animTimeout1) clearTimeout(animTimeout1);
+         if (animTimeout2) clearTimeout(animTimeout2);
+         
+         animTimeout1 = setTimeout(() => {
+         if (valid) {
+         button.classList.add('success');
+         if (errorMessage) errorMessage.style.display = 'none';
+         if (valid) {
+  button.classList.add('success');
+  if (errorMessage) errorMessage.style.display = 'none';
+
+  animTimeout2 = setTimeout(() => {
+    // Hide the whole form wrapper, not just the form tag
+    document.getElementById('waitlist-form-wrapper').style.display = 'none';
+    thankyou.style.display = 'block';
+
+    setTimeout(() => {
+      button.classList.remove('animate', 'success', 'error');
+      button.disabled = false;
+      button.style.color = '';
+      emailInput.value = '';
+      // Keep the form wrapper hidden
+    }, 1800);
+  }, 800);
+}
+
+
+         } else {
+         button.classList.add('error');
+         // Show error message
+         if (errorMessage) errorMessage.style.display = 'block';
+         animTimeout2 = setTimeout(() => {
+         button.classList.remove('animate', 'success', 'error');
+         button.disabled = false;
+         button.style.color = '';
          emailInput.focus();
-         return;
+         // Optionally clear the message again if user types (see below)
+         }, 800);
          }
-         
-         // Hide full waitlist content (heading + form)
-         if (waitlistContent) waitlistContent.style.display = "none";
-         
-         // Show thank you message
-         thankYou.style.display = "block";
+         }, 2500);
          });
+         
+         // Hide error message when user starts typing again
+         emailInput.addEventListener('input', function() {
+         if (errorMessage) errorMessage.style.display = 'none';
          });
-         //end
+
+//end of js code for form validation
+         
+         
          
          //js code for animation
          document.addEventListener("DOMContentLoaded", function () {
