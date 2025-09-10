@@ -14,11 +14,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configure Git
-        run: |
-          git config --global user.email "anoop@tribli.ai"
-          git config --global user.name "Anoop Singh"
-
       - name: Setup Node.js (if not static)
         if: github.ref != 'refs/heads/prod'
         uses: actions/setup-node@v4
@@ -41,9 +36,19 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
+      - name: Configure Git for Vercel
+        run: |
+          git config --local user.email "anoop@tribli.ai"
+          git config --local user.name "Anoop Singh"
+
       - name: Deploy to Vercel (Preview)
         if: github.event_name == 'pull_request'
-        run: vercel deploy --token=${{ secrets.VERCEL_TOKEN }} --yes
+        run: |
+          export GIT_AUTHOR_EMAIL="anoop@tribli.ai"
+          export GIT_AUTHOR_NAME="Anoop Singh"
+          export GIT_COMMITTER_EMAIL="anoop@tribli.ai"
+          export GIT_COMMITTER_NAME="Anoop Singh"
+          vercel deploy --token=${{ secrets.VERCEL_TOKEN }} --yes
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -51,7 +56,12 @@ jobs:
 
       - name: Deploy to Vercel (Production)
         if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/prod') && github.event_name == 'push'
-        run: vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }} --yes --force
+        run: |
+          export GIT_AUTHOR_EMAIL="anoop@tribli.ai"
+          export GIT_AUTHOR_NAME="Anoop Singh"
+          export GIT_COMMITTER_EMAIL="anoop@tribli.ai"
+          export GIT_COMMITTER_NAME="Anoop Singh"
+          vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }} --yes --force
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
