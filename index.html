@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
+      <!-- Site Title -->
+      <title>Tribli | Built for the Bold. Coming Soon.</title>
+
+      <!-- Meta Description -->
+      <meta name="description" content="Tribli is quietly taking shape — a new kind of platform crafted for tomorrow’s creators. Join the early list to stay close to what’s coming. No noise. Just purpose.">
+
+      <!-- Open Graph -->
+      <meta property="og:title" content="Tribli | Built for the Bold. Coming Soon." />
+      <meta property="og:description" content="Tribli is quietly taking shape — a new kind of platform crafted for tomorrow’s creators. Join the early list to stay close to what’s coming. No noise. Just purpose." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://tribli.ai" />
+      <meta property="og:image" content="https://tribli.ai/images/og-image.jpg" />
+      <meta property="og:site_name" content="Tribli" />
+      <!-- Twitter Card -->
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Tribli | Built for the Bold. Coming Soon." />
+      <meta name="twitter:description" content="Tribli is quietly taking shape — a new kind of platform crafted for tomorrow’s creators. Join the early list to stay close to what’s coming. No noise. Just purpose." />
+      <meta name="twitter:image" content="https://tribli.ai/images/og-image.jpg" />
+      <meta name="twitter:site" content="@tribli" />
+ 
+ 
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>TRIBLI</title>
@@ -241,7 +262,7 @@
                <div class="thank-you-message" id="thank-you-message">
                   <div>Thank you! 🎉<br>You've been added to the waitlist.</div>
                </div>
-               <div class="error-message" id="error-message">
+               <div class="error-message" style="color: #B91C1C;" id="error-message">
                   <div>Invalid Email Address. Please try again.</div>
                </div>
             </div>
@@ -262,17 +283,17 @@
             </div>
             <!-- Right Side: Social Icons -->
             <div class="d-flex gap-3 justify-content-center">
-               <a href="#" target="_blank" class="icon-wrapper">
+               <a href="https://www.linkedin.com/company/tribli-ai" target="_blank" class="icon-wrapper">
                <img src="images/LinkedIn.svg" class="img-fluid social-icon default" alt="LinkedIn">
                <img src="images/linkedin-svg-icon-hover.svg" class="img-fluid social-icon hover-img" alt="LinkedIn">
                </a>
                <!-- Instagram -->
-               <a href="#" target="_blank" class="icon-wrapper">
+               <a href="https://www.instagram.com/tribli.ai?igsh=MTJlbGs2Y21sbXduaw==" target="_blank" class="icon-wrapper">
                <img src="images/Instagram.svg" class="img-fluid social-icon default" alt="Instagram">
                <img src="images/instagram-svg-hover.svg" class="img-fluid social-icon hover-img" alt="Instagram">
                </a>
                <!-- X/Twitter -->
-               <a href="#" target="_blank" class="icon-wrapper">
+               <a href="https://x.com/TribliSocial" target="_blank" class="icon-wrapper">
                <img src="images/X.svg" class="img-fluid social-icon default" alt="X">
                <img src="images/twitter-svg-idle.svg" class="img-fluid social-icon hover-img" alt="X">
                </a>
@@ -476,9 +497,15 @@
               
               // Update thank you message with API response
               if (data && data.message) {
-                thankyou.innerHTML = '<div>Thank you! 🎉<br>' + data.message + '</div>';
+                if(data.message.includes('Successfully subscribed')){
+                  thankyou.innerHTML = '<div style="color: #047857;">Thank you! 🎉<br>You’re in. Welcome home, you belong here.</div>';
+                } else if(data.message.includes('already subscribed')){
+                  thankyou.innerHTML = '<div style="color: #92400E;">Thank you! 🎉<br>Looks like you’re already on the list. The spotlight’s still on you.</div>';
+                } else {
+                  thankyou.innerHTML = '<div style="color: #047857;">Thank you! 🎉<br>'+data.message+'</div>';
+                }
               } else {
-                thankyou.innerHTML = '<div>Thank you! 🎉<br>You\'ve been added to the waitlist.</div>';
+                thankyou.innerHTML = '<div style="color: #047857;">Thank you! 🎉<br>You\'ve been added to the waitlist.</div>';
               }
               
               thankyou.style.display = 'block';
@@ -498,7 +525,7 @@
             button.classList.add('error');
             if (errorMessage) {
               errorMessage.style.display = 'block';
-              errorMessage.innerHTML = '<div>Failed to subscribe. Please try again.</div>';
+              errorMessage.innerHTML = '<div style="color: #B91C1C;">Something broke behind the scenes. Try again, the stage is waiting.</div>';
             }
             
             animTimeout2 = setTimeout(() => {
